@@ -28,31 +28,31 @@ public class CourseResource {
 	}
 	
 	@GetMapping("/all")
-	public ResponseEntity<List<Course>> getAllUsers() {
+	public ResponseEntity<List<Course>> getAllCourses() {
 		List<Course> users = courseService.findAllCourses();
 		return new ResponseEntity<List<Course>>(users, HttpStatus.OK);
 	}
 	
 	@GetMapping("/find/{id}")
-	public ResponseEntity<Course> getUserById(@PathVariable("id") Long id) {
+	public ResponseEntity<Course> getCourseById(@PathVariable("id") Long id) {
 		Course course = courseService.findCourseById(id);
 		return new ResponseEntity<>(course, HttpStatus.OK);
 	}
 	
 	@PostMapping("/add")
-	public ResponseEntity<Course> addUser(@Validated @RequestBody Course course) {
+	public ResponseEntity<Course> addCourse(@Validated @RequestBody Course course) {
 		Course newUser = courseService.addCourse(course);
 		return new ResponseEntity<>(newUser, HttpStatus.CREATED);
 	}
 	
 	@PutMapping("/update")
-	public ResponseEntity<Course> updateUser(@RequestBody Course course) {
+	public ResponseEntity<Course> updateCourse(@RequestBody Course course) {
 		Course updatedUser = courseService.updateCourse(course);
 		return new ResponseEntity<>(updatedUser, HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<?> deleteUser(@PathVariable("id") Long id) {
+	public ResponseEntity<?> deleteCourse(@PathVariable("id") Long id) {
 		courseService.deleteCourse(id);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
