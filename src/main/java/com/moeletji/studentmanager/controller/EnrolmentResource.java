@@ -23,7 +23,7 @@ public class EnrolmentResource {
 	}
 	
 	@GetMapping("/find/{userId}")
-	public ResponseEntity<List<Enrolment>> getUserById(@PathVariable("userId") Long userId) {
+	public ResponseEntity<List<Enrolment>> getEnrolmentByUserId(@PathVariable("userId") Long userId) {
 		List<Enrolment> enrolments = enrolmentService.findEnrolmentByUserId(userId);
 		return new ResponseEntity<List<Enrolment>>(enrolments, HttpStatus.OK);
 	}
